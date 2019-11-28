@@ -1,0 +1,23 @@
+[{
+    "id": "27",
+    "0": "27",
+    "topic": "Seuraava juttu",
+    "1": "Seuraava juttu",
+    "msg": "Mitäs nyt?",
+    "2": "Mitäs nyt?",
+    "count_to": "2019-11-29 12:00:00",
+    "3": "2019-11-29 12:00:00",
+    "bg_image": "peliilta.jpg",
+    "4": "peliilta.jpg"
+}, {
+    "id": "28",
+    "0": "28",
+    "topic": "Jotain kivaa!",
+    "1": "Jotain kivaa!",
+    "msg": "Tapahtuu parhaillaan!",
+    "2": "Tapahtuu parhaillaan!",
+    "count_to": "2019-11-30 15:26:00",
+    "3": "2019-11-30 15:26:00",
+    "bg_image": "kuva.jpg",
+    "4": "kuva.jpg"
+}]
