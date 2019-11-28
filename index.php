@@ -62,7 +62,9 @@ function showEvent(){
 
     // Set the date we're counting down to
     // var countDownDate = new Date("Nov 23, 2019 15:00:00").getTime();
-    var countDownDate = new Date(events[eventIndex].count_to).getTime();
+    var t = events[eventIndex].count_to.split(/[- :]/);
+    var d = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
+    var countDownDate = new Date(d).getTime();
 
     // Update the count down every 1 second
     x = setInterval(function() {
