@@ -21,7 +21,7 @@ span {
 
 .bg {
   /* The image used */
-  background-image: url("upload/peliilta.jpg");
+  background-image: url("../upload/kuva.jpg");
 
   /* Full height */
   height: 100%;

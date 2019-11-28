@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Peli-ilta</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body onload="getEvents()">
     
@@ -58,6 +58,7 @@ function showEvent(){
     
     document.getElementById("topic").innerHTML = events[eventIndex].topic;
     document.getElementById("bg").style.backgroundImage = `url('upload/${events[eventIndex].bg_image}')`
+    document.title = events[eventIndex].topic;
 
     // Set the date we're counting down to
     // var countDownDate = new Date("Nov 23, 2019 15:00:00").getTime();
