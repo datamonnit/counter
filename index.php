@@ -14,7 +14,7 @@
         </div>
         
         <p id="demo"></p>
-        <a href="#" onclick="changeEvent()">
+        <a href="#" onclick="vuf()">
             <img src="img/koira.gif" alt="Koira" class="sticky">
         </a>
         
@@ -114,6 +114,10 @@ function changeEvent(n){
         eventIndex = events.length -1;
     }
     showEvent();
+}
+
+function vuf(){
+    
 }
 
 </script>
