@@ -11,9 +11,7 @@ $stmt->execute();
  
 $data = json_encode($stmt->fetchAll(), JSON_UNESCAPED_UNICODE);
 
-
-file_put_contents('myjson.json',$data);
-// var_dump($data);
+// file_put_contents('myjson.json',$data);
 
 echo $data;
 
