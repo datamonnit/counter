@@ -38,6 +38,9 @@
 let events, eventIndex = 0, x;
 
 
+function zeroPad(num, places) {
+  return String(num).padStart(places, '0')
+}
 
 
 function getEvents(){
@@ -63,9 +66,11 @@ function showEvent(){
     // Set the date we're counting down to
     // var countDownDate = new Date("Nov 23, 2019 15:00:00").getTime();
     var t = events[eventIndex].count_to.split(/[- :]/);
+    console.log(t);
     var d = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
+    console.log(d);
     var countDownDate = new Date(d).getTime();
-
+    console.log(countDownDate);
     // Update the count down every 1 second
     x = setInterval(function() {
 
@@ -80,19 +85,41 @@ function showEvent(){
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
+    
+    seconds = zeroPad(seconds,2);
+    minutes = zeroPad(minutes,2);
+
     // Output the result in an element with id="demo"
-    if (hours > 0) {
-        document.getElementById("demo").innerHTML = `
-            <span>${days}pv ${hours}h</span>
-            <span>${minutes}m ${seconds}s</span>`;
-    } else if (minutes > 0) {
-        document.getElementById("demo").innerHTML = `
-            <span>${minutes}m ${seconds}s</span>`;
-    } else {
-        document.getElementById("demo").innerHTML = `
-            <span>${seconds}s</span>`;
+    document.getElementById("demo").innerHTML = "";
+
+    if (days > 0) {
+        document.getElementById("demo").innerHTML += `<span style="display: block;">${days}<span class="unit">days</span></span>`
     }
+    if (hours > 0 || (hours == 0 && days > 0)){
+        document.getElementById("demo").innerHTML += `<span>${hours}:</span>`
+    }
+    if (minutes > 0 || (minutes == 0 && (hours > 0 || days > 0))){
+        document.getElementById("demo").innerHTML += `<span>${minutes}:</span>`
+    }
+    document.getElementById("demo").innerHTML += `<span>${seconds}</span>`;
+    
+    // if (days == 0 && hours > 0) {
+    //     document.getElementById("demo").innerHTML = `
+    //         <span>${hours}<span class="unit">h</span></span>
+    //         <span>${minutes}<span class="unit">m</span> ${seconds}<span class="unit">s</span></span>`;        
+    // }
+
+    // else if (days > 0 || hours > 0) {
+    //     document.getElementById("demo").innerHTML = `
+    //         <span>${days}<span class="unit">pv</span> ${hours}<span class="unit">h</span></span>
+    //         <span>${minutes}<span class="unit">m</span> ${seconds}<span class="unit">s</span></span>`;
+    // } else if (minutes > 0) {
+    //     document.getElementById("demo").innerHTML = `
+    //         <span>${minutes}<span clss="unit">m</span> ${seconds}<span class="unit">s</span></span>`;
+    // } else {
+    //     document.getElementById("demo").innerHTML = `
+    //         <span>${seconds}<span class="unit">s</span></span>`;
+    // }
     
         
     // If the count down is over, write some text 
