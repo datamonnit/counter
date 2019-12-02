@@ -1,4 +1,5 @@
 <?php
+// Edit credentials to match your db provider
 $servername = "localhost";
 $username = "root";
 $password = "";
