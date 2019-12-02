@@ -35,9 +35,14 @@ $msg = $_POST['msg'];
 // $bg_image = $_FILES['bg_image']['name'];
 
 if ($stmt->execute()){
+    echo "<script>";
     echo "Success";
     echo $_POST['day'] . "<br>";
     echo $_POST['time'] . "<br>";
+    echo "</script>";
 } else {
+    echo "<script>";
     echo "Error";
+    echo "</script>";
 }
+header('Location: ../');
