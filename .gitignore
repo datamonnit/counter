@@ -1,3 +1,4 @@
 .vscode/
 insert_new_user.php
 pdo_connect.php
+./upload/*
