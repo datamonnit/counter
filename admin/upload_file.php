@@ -5,7 +5,8 @@ function upload_files($files_array, $target_dir){
     $errors = [];
     $messages = [];
 
-    $target_file = $target_dir . md5(uniqid(rand(), true)) . basename($files_array['bg_image']['name']);
+    $save_file_name = md5(uniqid(rand(), true)) . basename($files_array['bg_image']['name']);
+    $target_file = $target_dir . $save_file_name;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     
     // Check if file is an image
@@ -20,7 +21,6 @@ function upload_files($files_array, $target_dir){
 
     // Check if file already exists
     if (file_exists($target_file)) {
-        
         $errors[] = "Sorry, file already exists.";
         $uploadOk = 0;
     }
@@ -43,7 +43,7 @@ function upload_files($files_array, $target_dir){
     } else {
         if (move_uploaded_file($files_array['bg_image']['tmp_name'], $target_file)) {
             $messages[] = "The file ". basename( $files_array['bg_image']['name']). " has been uploaded.";
-            return $files_array['bg_image']['name'];
+            return $save_file_name;
         } else {
             $errors[] = "Sorry, there was an error uploading your file.";
         }

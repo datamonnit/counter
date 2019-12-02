@@ -53,7 +53,7 @@ function getEvents(){
             // document.getElementById("demo").innerHTML = myObj.name;
         }
     };
-    xmlhttp.open("GET", "get_next_event.php?q=hau", true);
+    xmlhttp.open("GET", "get_next_event.php?q="+Date.now(), true);
     xmlhttp.send();
 }
 
@@ -92,16 +92,19 @@ function showEvent(){
     // Output the result in an element with id="demo"
     document.getElementById("demo").innerHTML = "";
 
-    if (days > 0 ) {
-        document.getElementById("demo").innerHTML += `<span style="display: block;">${days}<span class="unit">days</span></span>`
+    if (days > 0) {
+        document.getElementById("demo").innerHTML += `<span style="display: block;">${days}<br>päivää<br>jäljellä</span>`
+    } else {
+
+        if (hours > 0 || (hours == 0 && days > 0)){
+            document.getElementById("demo").innerHTML += `<span>${hours}:</span>`
+        }
+        if (minutes > 0 || (minutes == 0 && (hours > 0 || days > 0))){
+            document.getElementById("demo").innerHTML += `<span>${minutes}:</span>`
+        }
+        document.getElementById("demo").innerHTML += `<span>${seconds}</span>`;
     }
-    if (hours > 0 || (hours == 0 && days > 0)){
-        document.getElementById("demo").innerHTML += `<span>${hours}:</span>`
-    }
-    if (minutes > 0 || (minutes == 0 && (hours > 0 || days > 0))){
-        document.getElementById("demo").innerHTML += `<span>${minutes}:</span>`
-    }
-    document.getElementById("demo").innerHTML += `<span>${seconds}</span>`;
+    
     
     // if (days == 0 && hours > 0) {
     //     document.getElementById("demo").innerHTML = `
