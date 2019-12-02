@@ -1,5 +1,6 @@
 <?php
-if (!isset($_SESSION['logged_id'])){
+session_start();
+if (!isset($_SESSION['logged_in'])){
     header('Location: ../login.php');
 }?>
 <!DOCTYPE html>
@@ -12,8 +13,13 @@ if (!isset($_SESSION['logged_id'])){
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body>
+    <div class="jumbotron">
+        <h1>Add a new timer event</h1>
+        <p>Follow all your important dates...</p>
+    </div>
+
     <div class="container">
-        <h1>Counter Edit</h1>
+        <h1>New counter</h1>
         <form action="save_counter.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="topic">Topic:</label>

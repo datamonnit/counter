@@ -45,16 +45,16 @@ function zeroPad(num, places) {
 
 function getEvents(){
     var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                events = JSON.parse(this.responseText);
-                console.log(events);
-                showEvent();
-                // document.getElementById("demo").innerHTML = myObj.name;
-            }
-        };
-        xmlhttp.open("GET", "get_next_event.php?q=hau", true);
-        xmlhttp.send();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            events = JSON.parse(this.responseText);
+            console.log(events);
+            showEvent();
+            // document.getElementById("demo").innerHTML = myObj.name;
+        }
+    };
+    xmlhttp.open("GET", "get_next_event.php?q=hau", true);
+    xmlhttp.send();
 }
 
 function showEvent(){
@@ -92,7 +92,7 @@ function showEvent(){
     // Output the result in an element with id="demo"
     document.getElementById("demo").innerHTML = "";
 
-    if (days > 0) {
+    if (days > 0 ) {
         document.getElementById("demo").innerHTML += `<span style="display: block;">${days}<span class="unit">days</span></span>`
     }
     if (hours > 0 || (hours == 0 && days > 0)){

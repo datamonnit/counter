@@ -24,10 +24,13 @@ if (isset($_SESSION['logged_in'])) {
 
         <form action="check_login.php" method="post">
             <div class="form-group">
+                <label for="code">User</label>
+                <input class="form-control" type="text" name="user">
+                
                 <label for="code">Code</label>
-                <input class="form-control" type="text" name="code">
+                <input class="form-control" type="password" name="code">
             </div>
-            <input class="btn btn-primary" type="button" value="Login">
+            <input class="btn btn-primary" type="submit" value="Login">
         </form>
     </div>   
 </body>
