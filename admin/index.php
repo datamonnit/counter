@@ -45,6 +45,8 @@ if (!isset($_SESSION['logged_in'])){
             <input name="save_counter" type="submit" class="btn btn-primary" value="Save counter">
 
         </form>
+
+        <a href="logout.php" class="btn btn-warnign">Logout</a>
     </div>
     
 </body>

@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+$_SESSION['REFERER'] = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'admin/' ;
 if (isset($_SESSION['logged_in'])) {
     header('Location: admin/');
 }

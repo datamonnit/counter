@@ -1,6 +1,10 @@
 <?php
-
 session_start();
+if (isset($_SESSION['REFERER'])) {
+    $location = $_SESSION['REFERER'];
+} else {
+    $location = 'admin/';
+}
 
 if (!isset($_POST['code']) || !isset($_POST['user'])) {
     header('Location: login.php?error=use_login_form');
@@ -30,7 +34,8 @@ $login_pass = password_verify($pwd, $data['passcode']);
 if ($login_pass){
     $_SESSION['user'] = $data['username'];
     $_SESSION['logged_in'] = TRUE;
-    header('Location: admin/');
+    
+    header('Location: ' . $location);
     exit();
 } else {
     echo "Login failed";
