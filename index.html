@@ -48,13 +48,24 @@ function getEvents(){
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             events = JSON.parse(this.responseText);
-            console.log(events);
-            showEvent();
+            if (events.length > 0) {
+                console.log(events);
+                showEvent();
+            } else {
+                noEvents();
+            }
             // document.getElementById("demo").innerHTML = myObj.name;
         }
     };
     xmlhttp.open("GET", "get_next_event.php?q="+Date.now(), true);
     xmlhttp.send();
+}
+
+function noEvents(){
+    document.getElementById("topic").innerHTML = "No events to show";
+    document.getElementById("bg").style.backgroundImage = `url('img/default-event.jpg')`
+    document.title = "Event counter";
+    document.getElementById("demo").innerHTML = "Login to create new event";
 }
 
 function showEvent(){
