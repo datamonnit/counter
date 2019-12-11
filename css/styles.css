@@ -77,7 +77,9 @@ p {
 }
 
 @media only screen and (max-width: 600px) {
- 
+    center p {
+        font-size: 3em;
+    }
     span {
         font-size: 6vh;
     }
