@@ -1,4 +1,5 @@
 <?php 
+
 function upload_files($files_array, $target_dir){  
     
     $ok = 1;
@@ -49,6 +50,12 @@ function upload_files($files_array, $target_dir){
         }
     }
     
+    if (count($erros)>0) {
+       require_once '../Logger.class.php';
+       $error_logger = New Logger('error.log');
+       $error_logger->addArrayToLog($errors);
+    }
+
     return false;
 
     var_dump($errors);

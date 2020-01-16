@@ -11,7 +11,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == TRUE) {
     );
     $data = json_encode($data, JSON_UNESCAPED_UNICODE);
     
-    echo $data;
+    //echo $data;
 
 }
 

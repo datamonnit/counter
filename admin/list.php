@@ -46,11 +46,6 @@
     <script src="../js/boostrap.min.js"></script>
     <script>
 
-
-
-
-
-
         function getData(){
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function() {
@@ -113,12 +108,14 @@
  
 
                 // Image
+
+                // Show image -button
                 let showImageBtn = document.createElement('button');
                 let showImageBtnLabel = document.createTextNode('Show pic');
                 showImageBtn.appendChild(showImageBtnLabel);
 
                 let btnClass = document.createAttribute('class');
-                btnClass.value = 'show-image';
+                btnClass.value = 'show-image btn btn-primary clear';
                 showImageBtn.setAttributeNode(btnClass);
                 eventDiv.appendChild(showImageBtn);
 
@@ -138,6 +135,27 @@
 
                 eventImgDiv.appendChild(eventImg);
                 eventDiv.appendChild(eventImgDiv);
+
+                // Edit event - button
+                let editBtn = document.createElement('button');
+                let editBtnLabel = document.createTextNode('Edit event');
+                editBtn.appendChild(editBtnLabel);
+
+                let btnEditClass = document.createAttribute('class');
+                btnEditClass.value = 'btn btn-primary btn-edit clear';
+                editBtn.setAttributeNode(btnEditClass);
+                eventDiv.appendChild(editBtn);
+
+                // Delete event - button
+                let deleteBtn = document.createElement('button');
+                let deleteBtnLabel = document.createTextNode('Delete event');
+                deleteBtn.appendChild(deleteBtnLabel);
+
+                let btnDeleteClass = document.createAttribute('class');
+                btnDeleteClass.value = 'btn btn-danger btn-delete';
+                deleteBtn.setAttributeNode(btnDeleteClass);
+                eventDiv.appendChild(deleteBtn);
+
 
                 dataContainer.appendChild(eventDiv);
             });
