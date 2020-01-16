@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>List events</title>
+    <style>
+    .event-div {
+        border: solid 1px #333;
+        margin: 5px;
+        padding: 5px;
+    }
+    </style>
+</head>
+<body>
+
+<button onclick="showEvents(1);">Vaihtoehto 1</button>
+<button onclick="showEvents(2);">Vaihtoehto 2</button>
+<button onclick="showEvents(3);">Vaihtoehto 3</button>
+
+<select name="valinta" id="choice" onchange="showEvents(this.value)">
+    <option value="all">Näytä kaikki</option>
+    <option value="require_login">Vaatii kirjautumisen</option>
+    <option value="no_login">Ei vaadi kirjautumista</option>
+</select>
+
+<div id="event-list">
+
+</div>
+
+<script>
+function showEvents(choice){
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200) {
+            let events = JSON.parse(this.responseText);
+            showData(events);
+        }
+    }
+    xhttp.open("GET", "info.php?choice="+choice, true);
+    xhttp.send();
+}
+
+function showData(data){
+    console.log(data);
+    let eventList = document.getElementById("event-list");
+
+    eventList.innerHTML = "";
+
+    data.forEach(event => {
+        eventList.innerHTML += 
+        `<div class="event-div">
+            <h2>#${event.id} : ${event.topic}</h2>
+            <p>Message: ${event.msg}</p> 
+            <p>Count to: ${event.count_to}</p> 
+        </div>`
+    });
+
+    // for (let i=0; i<data.length; i++){
+    //     console.log(data[i].topic);
+    //     eventList.innerHTML += data[i].topic + "<br>";
+    // }
+    // document.getElementById("event-list").innerHTML = data;
+}
+
+</script>
+
+</body>
+</html>
+
